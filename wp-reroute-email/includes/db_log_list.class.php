@@ -24,7 +24,7 @@ class DBLogList extends WP_List_Table {
     function column_subject($item){
         $page = sanitize_text_field(filter_input(INPUT_GET, 'page'));
         $actions = array(
-            'view'      => sprintf('<a href="?page=%s&tab=details&action=%s&logid=%s">' . esc_attr__('View Message', 'wp_reroute_email') . '</a>', esc_attr($page),'view', esc_attr($item->id))
+            'view'      => sprintf('<a href="?page=%s&tab=details&action=%s&logid=%s">' . esc_attr__('View Message', 'wp-reroute-email') . '</a>', esc_attr($page),'view', esc_attr($item->id))
         );
 
         return sprintf('%1$s %2$s', wp_kses_post($item->subject), $this->row_actions($actions));
@@ -37,9 +37,9 @@ class DBLogList extends WP_List_Table {
     function get_columns(){
         $columns = array(
             'id' => 'ID',
-            'subject'     => esc_attr__('Subject', 'wp_reroute_email'),
-            'recipients_to'    => esc_attr__('Sent To', 'wp_reroute_email'),
-            'sent_on'  => esc_attr__('Sent On', 'wp_reroute_email')
+            'subject'     => esc_attr__('Subject', 'wp-reroute-email'),
+            'recipients_to'    => esc_attr__('Sent To', 'wp-reroute-email'),
+            'sent_on'  => esc_attr__('Sent On', 'wp-reroute-email')
         );
 
         return $columns;
@@ -55,7 +55,7 @@ class DBLogList extends WP_List_Table {
 
     function get_bulk_actions() {
         $actions = array(
-            'delete_all_messages'    => esc_attr__('Delete All Messages', 'wp_reroute_email')
+            'delete_all_messages'    => esc_attr__('Delete All Messages', 'wp-reroute-email')
         );
 
         return $actions;
